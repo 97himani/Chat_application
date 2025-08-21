@@ -34,9 +34,9 @@ if prompt := st.chat_input("Type your message..."):
         placeholder = st.empty()
         full_resp = ""
 
-        # ✅ यहाँ ध्यान दो - ऐसा model use करो जो सिर्फ जवाब दे
+       
         stream = client.chat.completions.create(
-            model="llama-3.1-8b-instant",  # यह reasoning वाली चीज़ नहीं जोड़ेगा
+            model="llama-3.1-8b-instant", 
             messages=st.session_state.messages,
             stream=True,
         )
@@ -49,3 +49,4 @@ if prompt := st.chat_input("Type your message..."):
         placeholder.markdown(full_resp)
 
     st.session_state.messages.append({"role": "assistant", "content": full_resp})
+
